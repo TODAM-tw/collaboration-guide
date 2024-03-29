@@ -6,6 +6,12 @@ Some following to collaborate at ToDammm.
 - [Coding Style](#coding-style)
 - [Contribute to the Repository](#contribute-to-the-repository)
   - [The Example of the workflow](#the-example-of-the-workflow)
+- [Commit Message](#commit-message)
+  - [Type of Commit Message](#type-of-commit-message)
+  - [Example](#example)
+    - [Add a new feature](#add-a-new-feature)
+    - [Documentation](#documentation)
+    - [Add the test](#add-the-test)
 - [Issue](#issue)
 - [Pull Request](#pull-request)
 - [Development Environment](#development-environment)
@@ -44,17 +50,77 @@ The following is the workflow:
 
 ### The Example of the workflow
 
-- PO's Repository: `PO/test-repo`
+- Repository in ToDAM: `TODAM/test-repo`
   - Main Branch: `main`
 - Forked Repository: `YourName/test-repo`
   - Main Branch: `main`
   - Feature Branch: `feature/your-feature` <- Add your feature here
-  - Upstream Remote: `PO/test-repo`
+  - Upstream Remote: `TODAM/test-repo`
   - Upstream Branch: `main`
-- Pull Request: `PO/test-repo:main <- YourName/test-repo:feature/your-feature`
-- Merge: `PO/test-repo:main <- YourName/test-repo:feature/your-feature`
-- Fetch: `YourName/test-repo:main <- PO/test-repo:main`
+- Pull Request: `TODAM/test-repo:main <- YourName/test-repo:feature/your-feature`
+- Merge: `TODAM/test-repo:main <- YourName/test-repo:feature/your-feature`
+- Fetch: `YourName/test-repo:main <- TODAM/test-repo:main`
 - Merged: `YourName/test-repo:feature/your-feature <- YourName/test-repo:main` or Create a new branch from `YourName/test-repo:main`
+
+## Commit Message
+
+We only required the `Header` and `Footer` in the commit message. Header is described as Topic, and Fotter is linked to the issue or task number.
+
+```
+Header: <TYPE>(<SCOPE>): <SUBJECT>
+    - TYPE: Represents the category of the commit.
+    - SCOPE: Represents the scope of the commit.
+    - (Required) SUBJECT: Represents a brief description of the commit, (limited to 50 characters and should not end with a period)
+
+Body: 72-character wrapped. This should answer:
+    - Provide a detailed description of the commit. (Can be split into multiple lines, with each line limited to 72 characters.)
+    - Explain the changes made in the code, and Why to do?
+
+Footer:
+    - (if applicable) Include the task number.
+    - (optional) BREAKING CHANGE: Record incompatible changes. It should start with "BREAKING CHANGE:" followed by a description of the change, the reason for the change, and migration instructions.
+```
+
+### Type of Commit Message
+
+The `Type` field represents the category of the commit and indicates the action performed. Here are some conventions we follow:
+
+- feat: Adding or modifying features.
+- fix: Fixing functionality or bugs.
+- docs: Writing documentation.
+- style: Making formatting changes that do not affect the code's functionality (e.g., white-space, formatting, missing semi colons, etc.).
+- refactor: Restructuring code without adding new features or fixing bugs.
+- perf: Improving performance.
+- test: Adding missing tests.
+- chore: Making changes to build processes or auxiliary tools.
+- revert: Reverting a previous commit (e.g., revert: type(scope): subject (revert version: xxxx)).
+
+> [!IMPORTANT]
+> You must choice the `Type` of the commit message from the above list.
+
+### Example
+
+#### Add a new feature
+```
+feat: email validation
+
+Issue: #123
+```
+
+#### Documentation
+```
+docs: email validation
+
+Issue: #124
+```
+
+#### Add the test
+```
+test: email validation
+
+Issue: #125
+```
+
 
 ## Issue
 
