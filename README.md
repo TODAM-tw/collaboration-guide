@@ -94,6 +94,77 @@ def add(a, b):
     return a + b
 ```
 
+> [!NOTE]
+> We 
+
+### Naming
+
+#### General
+- Please adhere to the [**PEP 8 – Style Guide for Python Code**](https://peps.python.org/pep-0008/) for the fundamental Python coding style.
+    - It is recommended to install the VSCode Extension - [Pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint)
+
+- CRUDL
+    - C: Create
+    - R: Get
+    - U: Update
+    - D: Delete
+    - L: List
+    - Exmaple: `update_order_name.py`
+#### Classes, Exceptions
+Use of **CapWords** convention (PascalCase) for class names and exceptions.
+
+#### Variables, Functions, and Methods
+Use of **lowercase with underscores** (snake_case) for variable names, function and method names.
+
+#### Constants
+Use of all **uppercase** letters with underscores separating words for constants.
+
+#### Testing
+Begin with **test_** followed by a description of the function's behavior or condition being tested, using underscores to separate words.
+Example: `test_calculate_total_with_negative_numbers`, `test_process_data_invalid_format`
+
+### Format
+
+We will use **Black** for formatting.
+
+Please use the following tools, assuming all team members are using VSCode for writing code. If you are using another IDE or editor, please find the equivalent and compatible plugins for your IDE.
+
+- **Black Formatter**
+  - **Description:** Automatic code formatting tool.
+  - **Download URL:** [https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter)
+  - **Note:** [Trial from VS Code Python extension split Black, isort package](https://blog.kyomind.tw/black-and-isort/)
+
+- **Isort**
+  - **Description:** Automatic code formatting tool, but only for import statements to comply with PEP 8 standards.
+  - **Download URL:** [https://marketplace.visualstudio.com/items?itemName=ms-python.isort](https://marketplace.visualstudio.com/items?itemName=ms-python.isort)
+  - **Note:** Keyboard Shortcut: `Shift + Alt + O` <br> [VS Code: Python isort extension introduction and simple settings tutorial](https://blog.kyomind.tw/isort/)
+
+### Logging
+
+**General Guidelines**
+The following are mainly based on the PEP 8 guidelines:
+
+1. Do not use bare `print()` statements. Always use `logging` for outputting log messages.
+2. Set up a logger for each module: `logger = logging.getLogger(__name__)`.
+3. Use appropriate log levels (such as `debug`, `info`, `warning`, `error`, `critical`) for outputting messages.
+4. For formatting strings, use the '%' formatting style instead of `.format()` or f-strings.
+
+Example:
+```python
+import logging
+
+# Configure logging
+logging.basicConfig(level=logging.INFO,
+                    format='%(asctime)s [%(levelname)s] - %(message)s')
+
+# Create logger
+logger = logging.getLogger(__name__)
+
+def add(a, b):
+    logger.info("Adding %s and %s", a, b)
+    return a + b
+```
+
 
 ## Contribute to the Repository
 
